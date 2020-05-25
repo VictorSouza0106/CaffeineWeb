@@ -30,3 +30,139 @@ $caffeineWebPanel-theme: mat-light-theme($caffeineWebPanel-primary, $caffeineWeb
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$fontConfig: (
+    display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+    display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+    display-2: mat-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
+    display-1: mat-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+    headline: mat-typography-level(24px, 32px, 400, 'Roboto', 0.0000em),
+    title: mat-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+    subheading-2: mat-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+    subheading-1: mat-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+    body-2: mat-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+    body-1: mat-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+    button: mat-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+    caption: mat-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+    input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px)
+);
+
+
+@include mat-core($fontConfig);
+
+// Theme Config
+
+body {
+    --primary-color: #6A1B9A;
+    --primary-lighter-color: #7B1FA2;
+    --primary-darker-color: #6A1B9A;
+    --text-primary-color: $light-primary-text;
+    --text-primary-lighter-color: $dark-primary-text;
+    --text-primary-darker-color: $light-primary-text;
+}
+
+$mat-primary: (
+    main: #6A1B9A,
+    lighter: #7B1FA2,
+    darker: #6A1B9A,
+    200: #6A1B9A, // For slide toggle,
+    contrast : (
+        main: $light-primary-text,
+        lighter: $dark-primary-text,
+        darker: $light-primary-text,
+    )
+);
+$theme-primary: mat-palette($mat-primary, main, lighter, darker);
+
+body {
+    --accent-color: #cccccc;
+    --accent-lighter-color: #f0f0f0;
+    --accent-darker-color: #b9b9b9;
+    --text-accent-color: $dark-primary-text;
+    --text-accent-lighter-color: $dark-primary-text;
+    --text-accent-darker-color: $dark-primary-text;
+}
+
+$mat-accent: (
+    main: #cccccc,
+    lighter: #f0f0f0,
+    darker: #b9b9b9,
+    200: #cccccc, // For slide toggle,
+    contrast : (
+        main: $dark-primary-text,
+        lighter: $dark-primary-text,
+        darker: $dark-primary-text,
+    )
+);
+$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+
+body {
+    --warn-color: #daad33;
+    --warn-lighter-color: #f4e6c2;
+    --warn-darker-color: #cb9320;
+    --text-warn-color: $dark-primary-text;
+    --text-warn-lighter-color: $dark-primary-text;
+    --text-warn-darker-color: $dark-primary-text;
+}
+
+$mat-warn: (
+    main: #0eda63,
+    lighter: #8ee9b4,
+    darker: #cb9320,
+    200: #daad33, // For slide toggle,
+    contrast : (
+        main: $dark-primary-text,
+        lighter: $dark-primary-text,
+        darker: $dark-primary-text,
+    )
+);
+$theme-warn: mat-palette($mat-warn, main, lighter, darker);
+;
+
+$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+$altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+
+// Theme Init
+@include angular-material-theme($theme);
+
+.theme-alternate {
+    @include angular-material-theme($altTheme);
+}
+
+
+// Specific component overrides, pieces that are not in line with the general theming
+
+// Handle buttons appropriately, with respect to line-height
+.mat-raised-button, .mat-stroked-button, .mat-flat-button {
+    padding: 0 1.15em;
+    margin: 0 .65em;
+    min-width: 3em;
+    line-height: 36.4px
+}
+
+.mat-standard-chip {
+    padding: .5em .85em;
+    min-height: 2.5em;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+
+.mat-option {
+    font-family: var(--f3-font);
+    font-weight: 500;
+    color: #2c2c2c;
+    font-size: 0.82em !important;
+}
+
+mat-drawer-content {
+    background-color: #E8EAED !important;
+}
+.mat-sidenav-container { background-color: #E8EAED; }

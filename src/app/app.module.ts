@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule,MatToolbarModule, MatIconModule } from '@angular/material';
+import { 
+  MatSliderModule,MatToolbarModule, MatIconModule,
+  MatSidenavModule,MatListModule} from '@angular/material';
 import { from } from 'rxjs';
 
 @NgModule({
@@ -19,6 +21,8 @@ import { from } from 'rxjs';
     MatSliderModule,
     MatToolbarModule,
     MatIconModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
