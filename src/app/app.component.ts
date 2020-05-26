@@ -18,5 +18,9 @@ export class AppComponent implements OnInit {
         this.drawer.open();
 }
 
+ngOnInit(){
+  
+}
+
 }
 

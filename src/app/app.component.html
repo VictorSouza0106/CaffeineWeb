@@ -1,14 +1,12 @@
 <mat-toolbar color="primary" class="fixed-header position-fixed card-2">
   <mat-toolbar-row style="height: 60px;" class="d-flex flex-row">
-    <span (click)="toggleDrawer()">Caffeine</span>
-    <mat-icon aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-    <i class="mdi mdi-account"></i>
-    <mat-icon class="ml-auto" aria-hidden="false" aria-label="Example delete icon" (click)="toggleDrawer()">delete</mat-icon>
+    <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
+    <img src="../assets/Caffeine logo.PNG" style="cursor: pointer;height: 66px;margin-left: 15px;" (click)="toggleDrawer()">
   </mat-toolbar-row>
 </mat-toolbar>
 
-  <mat-sidenav-container style="width: 250px;">
-    <mat-sidenav class="z-depth-1-half" fixedInViewport="true" #drawer mode="over" >
+  <mat-sidenav-container>
+    <mat-sidenav class="z-depth-1-half" fixedInViewport="true" #drawer mode="side" >
         <mat-nav-list>
             <mat-list-item>
                 <i class="mdi mdi-monitor-dashboard mr-2"></i>
@@ -18,7 +16,7 @@
     </mat-sidenav>
 
 
-    <div class="drawer-content">
+    <div>
         <router-outlet></router-outlet>
     </div>
 

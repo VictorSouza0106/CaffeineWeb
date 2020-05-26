@@ -8,10 +8,12 @@ import {
   MatSliderModule,MatToolbarModule, MatIconModule,
   MatSidenavModule,MatListModule} from '@angular/material';
 import { from } from 'rxjs';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
