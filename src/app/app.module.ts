@@ -11,7 +11,6 @@ import { from } from 'rxjs';
 import { HomeComponent } from './pages/home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardsCarroselComponent } from './components/cards-carrosel/cards-carrosel.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     AppRoutingModule,
     BrowserAnimationsModule,
     MDBBootstrapModule,
-    SlickCarouselModule,
     //MAT IMPORTS
     MatSliderModule,
     MatToolbarModule,
