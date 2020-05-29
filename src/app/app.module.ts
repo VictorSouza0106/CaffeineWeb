@@ -9,16 +9,22 @@ import {
   MatSidenavModule,MatListModule} from '@angular/material';
 import { from } from 'rxjs';
 import { HomeComponent } from './pages/home/home.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CardsCarroselComponent } from './components/cards-carrosel/cards-carrosel.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CardsCarroselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MDBBootstrapModule,
+    SlickCarouselModule,
     //MAT IMPORTS
     MatSliderModule,
     MatToolbarModule,
