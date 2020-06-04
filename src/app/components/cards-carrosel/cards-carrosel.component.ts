@@ -1,18 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit,ViewChild,ElementRef, Renderer2, AfterViewChecked, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cards-carrosel',
   templateUrl: './cards-carrosel.component.html',
   styleUrls: ['./cards-carrosel.component.scss']
 })
-export class CardsCarroselComponent implements OnInit {
+export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewChecked {
 
-  constructor() { }
+  
+  @ViewChild('musicCard', {static: false}) musicCard: ElementRef;
 
+  @Input()
+  identifier:string = 'MyIdentifier'
 
-  active:Boolean = false;
+  ID_DINAMICO = "TEST"
+
+  active:Boolean = false;  
+  height = null;
+
+  constructor(
+    private renderer:Renderer2
+  ) { }
 
   ngOnInit(){
-
+    console.log('IDENTIFICADOR',this.identifier)
   }
+  ngAfterViewInit() {  
+    console.log(this.musicCard.nativeElement.offsetHeight);
+  }
+
+  ngAfterViewChecked() {
+      this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
+  }
+
 }
