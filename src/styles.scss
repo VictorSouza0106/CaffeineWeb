@@ -186,14 +186,3 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     font-size: 0.82em !important;
 }
 .mat-sidenav-container { background-color: #E8EAED; }
-
-.music-card-lg{
-    border-radius: 8px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-//todo criar os cards das musicas em menor escala
-.music-card-sm{
-    font-size: large;
-}

@@ -10,10 +10,12 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   
   @ViewChild('musicCard', {static: false}) musicCard: ElementRef;
 
-  @Input()
-  identifier:string = 'MyIdentifier'
+  @Input() identifier:string = 'MyIdentifier';
+  @Input() title:string = "";
+  @Input() color:string = null;
 
-  ID_DINAMICO = "TEST"
+  imagem = ['https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','https://images.freeimages.com/images/large-previews/85a/daisy-s-1375598.jpg']
+  imgg = 'https://images.freeimages.com/images/large-previews/85a/daisy-s-1375598.jpg'
 
   active:Boolean = false;  
   height = null;
@@ -30,7 +32,6 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   }
 
   ngAfterViewChecked() {
-      this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
-  }
+      this.height = `${this.musicCard.nativeElement.offsetWidth}px`}
 
 }
