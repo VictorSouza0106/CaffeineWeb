@@ -1,23 +1,34 @@
-<mat-toolbar color="primary" class="fixed-header position-fixed card-2">
+<mat-toolbar color="primary" class="fixed-header position-fixed" style="background-color: black;">
   <mat-toolbar-row style="height: 60px;" class="d-flex flex-row">
     <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
-    <img src="../assets/Caffeine logo.PNG" style="cursor: pointer;height: 66px;margin-left: 15px;" (click)="toggleDrawer()">
   </mat-toolbar-row>
 </mat-toolbar>
 
   <mat-sidenav-container>
     <mat-sidenav class="z-depth-1-half" fixedInViewport="true" #drawer mode="over" style="z-index: 19;" >
-        <mat-nav-list>
-            <mat-list-item>
-                <i class="mdi mdi-monitor-dashboard mr-2"></i>
-                <p>VAI QUE FUNFA</p>
-            </mat-list-item>
-        </mat-nav-list>
+      <div style="background-color:#0c1b2b;" class="py-3">
+        <img src="../assets/Caffeine logo.PNG" style="width: 100%">
+      </div>      
+      <mat-nav-list>
+          <mat-list-item>
+            <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
+            <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
+          </mat-list-item>
+          <mat-list-item class="mt-auto">
+            <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
+            <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
+          </mat-list-item>
+          <mat-list-item class="mt-auto">
+            <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
+            <span style="font-weight: 500;" class="ml-2">FAVORITOS</span>
+          </mat-list-item>
+          <mat-list-item class="mt-auto">
+            <i class="mdi mdi-coffee" style="font-size: 1.2em;"></i>
+            <span style="font-weight: 500;" class="ml-2">LICENÇAS</span>
+          </mat-list-item>
+      </mat-nav-list>
     </mat-sidenav>
-
-
     <div>
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </div>
-
 </mat-sidenav-container>

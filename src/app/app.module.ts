@@ -11,12 +11,14 @@ import { from } from 'rxjs';
 import { HomeComponent } from './pages/home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardsCarroselComponent } from './components/cards-carrosel/cards-carrosel.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CardsCarroselComponent
+    CardsCarroselComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit,ViewChild,ElementRef, Renderer2, AfterViewChecked, Input } from '@angular/core';
+import { Card } from 'src/app/models/card.model';
 
 @Component({
   selector: 'app-cards-carrosel',
@@ -14,24 +15,24 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   @Input() title:string = "";
   @Input() color:string = null;
 
-  imagem = ['https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','https://images.freeimages.com/images/large-previews/85a/daisy-s-1375598.jpg']
-  imgg = 'https://images.freeimages.com/images/large-previews/85a/daisy-s-1375598.jpg'
-
-  active:Boolean = false;  
+  @Input() cards_1: Card = null;
+  @Input() cards_2: Card = null;
+  @Input() cards_3: Card = null;
+  
+  
   height = null;
 
   constructor(
-    private renderer:Renderer2
   ) { }
 
   ngOnInit(){
-    console.log('IDENTIFICADOR',this.identifier)
   }
   ngAfterViewInit() {  
     console.log(this.musicCard.nativeElement.offsetHeight);
   }
 
   ngAfterViewChecked() {
-      this.height = `${this.musicCard.nativeElement.offsetWidth}px`}
+      this.height = `${this.musicCard.nativeElement.offsetWidth}px`
+  }
 
 }

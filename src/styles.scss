@@ -49,7 +49,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .card-4 {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.23);
 }
 
 .card-5 {
@@ -87,7 +87,7 @@ body {
 }
 
 $mat-primary: (
-    main: #4686FC,
+    main: #0c1b2b,
     lighter: #7B1FA2,
     darker: #6A1B9A,
     200: #6A1B9A, // For slide toggle,
@@ -185,4 +185,4 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     color: #2c2c2c;
     font-size: 0.82em !important;
 }
-.mat-sidenav-container { background-color: #E8EAED; }
+.mat-sidenav-container { background-color: #0c1b2b; }
