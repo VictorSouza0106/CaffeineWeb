@@ -6,31 +6,38 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatSliderModule,MatToolbarModule, MatIconModule,
-  MatSidenavModule,MatListModule} from '@angular/material';
+  MatSidenavModule,MatListModule, MatInputModule, MatButtonModule} from '@angular/material';
 import { from } from 'rxjs';
 import { HomeComponent } from './pages/home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardsCarroselComponent } from './components/cards-carrosel/cards-carrosel.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CardsCarroselComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MDBBootstrapModule,
+    FormsModule,
+    ReactiveFormsModule,
     //MAT IMPORTS
     MatSliderModule,
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

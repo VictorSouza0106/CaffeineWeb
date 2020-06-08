@@ -3,32 +3,31 @@
     <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
   </mat-toolbar-row>
 </mat-toolbar>
-
-  <mat-sidenav-container>
-    <mat-sidenav class="z-depth-1-half" fixedInViewport="true" #drawer mode="over" style="z-index: 19;" >
-      <div style="background-color:#0c1b2b;" class="py-3">
-        <img src="../assets/Caffeine logo.PNG" style="width: 100%">
-      </div>      
-      <mat-nav-list>
-          <mat-list-item>
-            <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
-            <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
-          </mat-list-item>
-          <mat-list-item class="mt-auto">
-            <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
-            <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
-          </mat-list-item>
-          <mat-list-item class="mt-auto">
-            <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
-            <span style="font-weight: 500;" class="ml-2">FAVORITOS</span>
-          </mat-list-item>
-          <mat-list-item class="mt-auto">
-            <i class="mdi mdi-coffee" style="font-size: 1.2em;"></i>
-            <span style="font-weight: 500;" class="ml-2">LICENÇAS</span>
-          </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
+<mat-sidenav-container>
+  <mat-sidenav class="z-depth-1-half" fixedInViewport="true" #drawer mode="over" style="z-index: 19;" >
+    <div style="background-color:#0c1b2b;" class="py-3">
+      <img src="../assets/Caffeine logo.PNG" style="width: 100%">
+    </div>      
+    <mat-nav-list>
+        <mat-list-item (click)="goToURL()">
+          <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
+          <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
+        </mat-list-item>
+        <mat-list-item class="mt-auto">
+          <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
+          <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
+        </mat-list-item>
+        <mat-list-item class="mt-auto">
+          <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
+          <span style="font-weight: 500;" class="ml-2">FAVORITOS</span>
+        </mat-list-item>
+        <mat-list-item class="mt-auto">
+          <i class="mdi mdi-coffee" style="font-size: 1.2em;"></i>
+          <span style="font-weight: 500;" class="ml-2">LICENÇAS</span>
+        </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div style="padding-top: 60px;">
+    <router-outlet></router-outlet>
+  </div>
 </mat-sidenav-container>

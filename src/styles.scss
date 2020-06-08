@@ -186,3 +186,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
     font-size: 0.82em !important;
 }
 .mat-sidenav-container { background-color: #0c1b2b; }
+
+.full-page{
+    min-height: 100vh ;
+  }
