@@ -24,6 +24,7 @@
     "@mdi/angular-material": "^3.7.95",
     "@mdi/font": "^3.9.97",
     "angular-bootstrap-md": "^7.5.4",
+    "angular-tag-cloud-module": "^4.2.0",
     "bootstrap": "^4.1.3",
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",

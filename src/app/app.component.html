@@ -1,6 +1,12 @@
 <mat-toolbar color="primary" class="fixed-header position-fixed" style="background-color: black;">
   <mat-toolbar-row style="height: 60px;" class="d-flex flex-row">
-    <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
+    <div>
+      <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
+    </div>
+    <div class="ml-auto mr-4">
+      <span>Olá, Crypt Lord</span>
+      <i class="mdi mdi-menu-down ml-2" (click)="goToURL('/login')" style="color: white;cursor: pointer;"></i>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
@@ -9,25 +15,29 @@
       <img src="../assets/Caffeine logo.PNG" style="width: 100%">
     </div>      
     <mat-nav-list>
-        <mat-list-item (click)="goToURL()">
+      <mat-list-item (click)="goToURL('/home')">
+        <i class="mdi mdi-home" style="font-size: 1.2em;"></i>
+        <span style="font-weight: 500;" class="ml-2">HOME</span>
+      </mat-list-item>
+        <mat-list-item (click)="goToURL('/search')">
           <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
         </mat-list-item>
-        <mat-list-item class="mt-auto">
+        <mat-list-item>
           <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
         </mat-list-item>
-        <mat-list-item class="mt-auto">
+        <mat-list-item>
           <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">FAVORITOS</span>
         </mat-list-item>
-        <mat-list-item class="mt-auto">
+        <mat-list-item>
           <i class="mdi mdi-coffee" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">LICENÇAS</span>
         </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-  <div style="padding-top: 60px;">
+  <div style="padding-top:var(--header-height); padding-bottom: 1px;">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

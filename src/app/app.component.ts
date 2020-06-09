@@ -46,8 +46,8 @@ setBusinessSelectorStatus(routerName:string){
   }
   }
 
-  goToURL(){
-    this.router.navigateByUrl('/login')
+  goToURL(path){
+    this.router.navigateByUrl(path)
   }
 
 }

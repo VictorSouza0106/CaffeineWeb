@@ -14,6 +14,8 @@ import { CardsCarroselComponent } from './components/cards-carrosel/cards-carros
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './pages/search/search.component';
+import { TagCloudModule } from 'angular-tag-cloud-module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     CardsCarroselComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MDBBootstrapModule,
     FormsModule,
     ReactiveFormsModule,
+    TagCloudModule,
     //MAT IMPORTS
     MatSliderModule,
     MatToolbarModule,
