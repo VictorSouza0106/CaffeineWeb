@@ -15,8 +15,8 @@ const LOGIN_URL = "";
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('drawer', {static: false}) drawer: MatDrawer;
-  @ViewChild(PlyrComponent,{static:false}) plyr: PlyrComponent;
+  @ViewChild('drawer') drawer: MatDrawer;
+  @ViewChild(PlyrComponent) plyr: PlyrComponent;
 
   title = 'caffeineWebPanel';
   showBusinessSelector:boolean  = true;

@@ -10,7 +10,7 @@ import { Musics } from 'src/app/models/musics.model';
 export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewChecked {
 
   
-  @ViewChild('musicCard', {static: false}) musicCard: ElementRef;
+  @ViewChild('musicCard',{static:true}) musicCard: ElementRef;
 
   @Input() identifier:string = 'MyIdentifier';
   @Input() title:string = "";
@@ -33,7 +33,4 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   }
 
   ngAfterViewChecked() {
-      this.height = `${this.musicCard.nativeElement.offsetWidth}px`
-  }
-
-}
+      this.height = `${this.musicCard.nativeElement.offsetWid
