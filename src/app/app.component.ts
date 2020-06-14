@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   player: Plyr;
 
   musicHistoric:Musics[] = [];
+  currentSong:Musics = null;
 
   plyr_controls = {
     controls:['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'pip', 'airplay', 'fullscreen']};
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit {
 
 ngOnInit(){
 
+  this.getCurrentSong();
 
   this.router.events.subscribe((router) => {
     if (router instanceof NavigationEnd) {
@@ -81,12 +83,14 @@ setBusinessSelectorStatus(routerName:string){
 
   getCurrentSong(){
     this.musicPlayerService.observeMusic().subscribe((music) => {
-      let currentSong = this.sessionStorage.retrieve('currentSong');
-      if (currentSong) {
-        this.musicHistoric.push(currentSong)
+      this.currentSong = this.sessionStorage.retrieve('currentSong');
+      console.log("CURRENT SONG",this.currentSong);
+      if (this.currentSong) {
+        this.musicHistoric.push(this.currentSong)
+        this.sessionStorage.store('history',this.musicHistoric);
       }
 
-      return  this.se
+      return this.sessionStorage.retrieve('currentSong');
     })
   }
 

@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './pages/search/search.component';
 import { TagCloudModule } from 'angular-tag-cloud-module';
 import { PlyrModule } from 'ngx-plyr';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,9 @@ import { PlyrModule } from 'ngx-plyr';
     MatListModule,
     MatInputModule,
     MatButtonModule,
+
+    //for Root
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

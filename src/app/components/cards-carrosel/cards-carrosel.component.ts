@@ -33,7 +33,7 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   }
 
   ngAfterViewChecked() {
-      this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
+      this.height = `${this.musicCard.nativeElement.offsetWidth}px`
   }
 
 }
