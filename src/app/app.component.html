@@ -1,9 +1,12 @@
 <mat-toolbar color="primary" class="fixed-header position-fixed" style="background-color: black;">
-  <mat-toolbar-row style="height: 60px;" class="d-flex flex-row">
+  <mat-toolbar-row style="height: 60px;" class="d-flex flex-row justify-content-between w-100">
     <div>
       <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
     </div>
-    <div class="ml-auto mr-4">
+    <div plyr style="width: 640px;" plyrType="audio" [plyrPlaysInline]="false" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"
+    [plyrOptions]="plyr_controls"
+    ></div>
+    <div class="mr-4">
       <span>Olá, Crypt Lord</span>
       <i class="mdi mdi-menu-down ml-2" (click)="goToURL('/login')" style="color: white;cursor: pointer;"></i>
     </div>

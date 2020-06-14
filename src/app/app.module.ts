@@ -16,6 +16,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './pages/search/search.component';
 import { TagCloudModule } from 'angular-tag-cloud-module';
+import { PlyrModule } from 'ngx-plyr';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,8 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
     FormsModule,
     ReactiveFormsModule,
     TagCloudModule,
+    PlyrModule,
+
     //MAT IMPORTS
     MatSliderModule,
     MatToolbarModule,

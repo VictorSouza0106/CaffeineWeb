@@ -43,7 +43,7 @@
     width: 35px;
     height: 35px;
     opacity: 0;
-    background-color: red;
+    background-color: #0c1b2b;
     border-radius: 20px;
 
     //ANIMATION
@@ -57,5 +57,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.mdi{
+    color: white;
 }
 
