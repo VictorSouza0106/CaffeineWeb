@@ -82,15 +82,28 @@ setBusinessSelectorStatus(routerName:string){
   }
 
   getCurrentSong(){
-    this.musicPlayerService.observeMusic().subscribe((music) => {
-      this.currentSong = this.sessionStorage.retrieve('currentSong');
-      console.log("CURRENT SONG",this.currentSong);
-      if (this.currentSong) {
-        this.musicHistoric.push(this.currentSong)
-        this.sessionStorage.store('history',this.musicHistoric);
-      }
 
-      return this.sessionStorage.retrieve('currentSong');
+    this.musicPlayerService.observeMusic().subscribe((music) => {
+      this.changeCurrentSong();
+    })
+  }
+
+  changeCurrentSong():Promise<any>{    
+    return new Promise<void>(() => {
+      this.player.stop();
+      this.currentSong = this.sessionStorage.retrieve('currentSong');
+      this.musicHistoric.push(this.currentSong)
+      this.sessionStorage.store('history',this.musicHistoric);
+      this.player.autoplay = true;
+      this.videoSources = [{
+        src: this.currentSong.music_url,
+        type: 'audio/mp3',
+      }];
+    }).catch((e) => {
+      console.log("ERROR CHANGE MUSIC",e);
+    }).finally(() => {
+       
+      this.play();    
     })
   }
 

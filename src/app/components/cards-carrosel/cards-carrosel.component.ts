@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit,ViewChild,ElementRef, Renderer2, AfterViewChecked, Input } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { Musics } from 'src/app/models/musics.model';
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-cards-carrosel',
@@ -24,13 +25,17 @@ export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewC
   height = null;
 
   constructor(
+    private sessionStorage:SessionStorageService,
   ) { }
 
   ngOnInit(){
   }
-  ngAfterViewInit() {  
-    console.log(this.musicCard.nativeElement.offsetHeight);
+  ngAfterViewChecked() {
+      this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
   }
 
-  ngAfterViewChecked() {
-      this.height = `${this.musicCard.nativeElement.offsetWid
+  setCurrentSong(music:Musics){
+    this.sessionStorage.store("currentSong",music);
+  }
+
+}

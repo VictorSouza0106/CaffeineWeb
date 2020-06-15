@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "caffeineWebPanel"
+  "defaultProject": "caffeineWebPanel",
+  "cli": {
+    "analytics": "4faf032a-53cf-487b-88ba-78d6996ebfd6"
+  }
 }

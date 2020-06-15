@@ -10,15 +10,15 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   obj = [{
-    'card':[{'id':1,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':2,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':3,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':4,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'}]},{
+    'card':[{'id':1,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
+            {'id':2,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
+            {'id':3,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
+            {'id':4,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'}]},{
 
-    'card':[{'id':1,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':2,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':3,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
-            {'id':4,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'}]
+    'card':[{'id':1,'img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
+            {'id':2,'img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
+            {'id':3,'img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
+            {'id':4,'img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'}]
           },{
           'card':[{'id':1,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
           {'id':2,'img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg'},
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
         }]
 
   ngOnInit() {
-    console.log("OBJ",this.obj[0]);
   }
 
 }

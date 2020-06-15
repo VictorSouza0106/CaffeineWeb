@@ -4,7 +4,7 @@
       <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
     </div>
     <div plyr style="width: 640px;" plyrType="audio" [plyrPlaysInline]="false" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"
-    [plyrOptions]="plyr_controls"
+    [plyrOptions]="plyr_controls" (plyrStateChange)="played($event)"
     ></div>
     <div class="mr-4">
       <span>Olá, Crypt Lord</span>
@@ -26,7 +26,7 @@
           <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item (click)="play()">
           <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
         </mat-list-item>
