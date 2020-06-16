@@ -3,10 +3,26 @@
     <div>
       <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
     </div>
-    <div plyr style="width: 640px;" plyrType="audio" [plyrPlaysInline]="false" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"
-    [plyrOptions]="plyr_controls" (plyrStateChange)="played($event)"
-    ></div>
-    <div class="mr-4">
+    <div class="d-flex flex-row align-items-center" style="margin-top: 16px;">
+      <div class="d-flex justify-content-center flex-column align-items-center">
+        <marquee class="music-title"style="font-size: 0.7em;">{{currentSong? currentSong.name : 'Caffeine Music and Sound Effects'}}</marquee>
+        <div plyr style="width: 440px;" plyrType="audio" [plyrPlaysInline]="false" [plyrSources]="videoSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"
+        [plyrOptions]="plyr_controls" (plyrStateChange)="played($event)"></div>
+      </div>
+      <div class="ml-2" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" (click)="menuTrigger.openMenu" style="cursor: pointer;">
+        <i class="mdi mdi-playlist-music"></i>
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="d-flex flex-row align-items-center py-2" style="height: unset;" *ngFor="let music of musicHistoric">
+          <img [src]="music.img_url" class="historic_img">
+          <span class="ml-2" style="color: white;">{{music.name}}</span>
+        </button>
+        <div class="m-3" *ngIf="musicHistoric.length == 0">
+          <span style="color: white;">Nao existe nenhuma musica no Historico</span>
+        </div>
+      </mat-menu>
+    </div>
+    <div>      
       <span>Olá, Crypt Lord</span>
       <i class="mdi mdi-menu-down ml-2" (click)="goToURL('/login')" style="color: white;cursor: pointer;"></i>
     </div>

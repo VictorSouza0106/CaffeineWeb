@@ -8,7 +8,7 @@ import { SessionStorageService } from 'ngx-webstorage';
   templateUrl: './cards-carrosel.component.html',
   styleUrls: ['./cards-carrosel.component.scss']
 })
-export class CardsCarroselComponent implements OnInit ,AfterViewInit, AfterViewChecked {
+export class CardsCarroselComponent implements OnInit , AfterViewChecked {
 
   
   @ViewChild('musicCard',{static:true}) musicCard: ElementRef;

@@ -11,3 +11,48 @@ mat-sidenav {
 .fixed-header {
     z-index: 20;
 }
+
+.music-title{
+    position: absolute;
+    top: 3px;
+    z-index: 1;
+    width: 440px;
+}
+
+.test-class{
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+    background-color: #0c1b2b;
+    border-radius: 20px;
+    z-index: 20px;
+
+    //ANIMATION
+    transition: opacity .4s ease-out;
+    -moz-transition: opacity .4s ease-out;
+    -webkit-transition: opacity .4s ease-out;
+    -o-transition: opacity .4s ease-out;
+}
+
+.centralizar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.historic_img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+::ng-deep.mat-menu-panel {
+    max-width: none !important;
+    background-color: #000000d9;
+  }
+
+button:focus, button:active:focus, button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}

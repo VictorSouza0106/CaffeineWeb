@@ -7,6 +7,7 @@ import { MusicPlayerService } from './services/music-player.service';
 import { SessionStorageService } from 'ngx-webstorage';
 
 const LOGIN_URL = "";
+const NUMBER_OF_HISTORIC_ITEMS = 5;
 
 @Component({
   selector: 'app-root',
@@ -92,7 +93,9 @@ setBusinessSelectorStatus(routerName:string){
     return new Promise<void>(() => {
       this.player.stop();
       this.currentSong = this.sessionStorage.retrieve('currentSong');
-      this.musicHistoric.push(this.currentSong)
+      this.musicHistoric.push(this.currentSong);
+      if(this.musicHistoric.length > NUMBER_OF_HISTORIC_ITEMS)
+        this.musicHistoric.splice(0,1);
       this.sessionStorage.store('history',this.musicHistoric);
       this.player.autoplay = true;
       this.videoSources = [{
