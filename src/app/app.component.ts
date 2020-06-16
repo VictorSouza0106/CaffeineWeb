@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   plyr_controls = {
     controls:['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'pip', 'airplay', 'fullscreen']};
 
-  videoSources: Plyr.Source[] = [
+  plyrSources: Plyr.Source[] = [
     {
       src: 'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3',
       type: 'audio/mp3',
@@ -89,6 +89,14 @@ setBusinessSelectorStatus(routerName:string){
     })
   }
 
+  playHistoricMusic(music:Musics){
+    this.currentSong = music;
+    this.plyrSources = [{
+      src: music.music_url,
+      type:'audio/mp3',
+    }]
+  }
+
   changeCurrentSong():Promise<any>{    
     return new Promise<void>(() => {
       this.player.stop();
@@ -98,7 +106,7 @@ setBusinessSelectorStatus(routerName:string){
         this.musicHistoric.splice(0,1);
       this.sessionStorage.store('history',this.musicHistoric);
       this.player.autoplay = true;
-      this.videoSources = [{
+      this.plyrSources = [{
         src: this.currentSong.music_url,
         type: 'audio/mp3',
       }];
