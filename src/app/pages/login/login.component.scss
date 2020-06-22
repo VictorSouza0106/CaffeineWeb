@@ -1,3 +1,16 @@
 .mat-form-field{
     width: 100%;
 }
+
+.background-login {
+    background-image: url("../../../assets/login-bg.png");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+  }

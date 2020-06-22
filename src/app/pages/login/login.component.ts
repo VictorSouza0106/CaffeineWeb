@@ -8,20 +8,35 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  form:FormGroup;
+  registerform:FormGroup;
+  loginForm:FormGroup;
+
+  hasUser:boolean = true;
 
   constructor(
     public formBuilder:FormBuilder,
   ) { }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
+
+    this.loginForm = this.formBuilder.group({
+      email:[],
+      password:[],
+    })
+
+    this.registerform = this.formBuilder.group({
       nickname: [],
       email:[],
       password:[],
       comfirmPassword:[]
-    }
-    )
+    })
+  }
+
+  register(){
+    if(this.hasUser)
+    this.hasUser = false;
+    else
+    this.hasUser = true;
   }
 
 

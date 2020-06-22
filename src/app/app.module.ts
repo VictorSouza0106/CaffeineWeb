@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,14 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
 import { PlyrModule } from 'ngx-plyr';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { TranslateModule } from '../app/pipes/translate.module'
+import {TranslatePipe} from './pipes/translate.pipe';
+import { TranslateService } from './services/translate.service';
+
+export function setupTranslateFactory(
+  service: TranslateService): Function {
+  return () => service.use('en-US');
+}
 
 @NgModule({
   declarations: [
@@ -39,6 +47,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     TagCloudModule,
     PlyrModule,
     OverlayModule,
+    TranslateModule,
 
     //MAT IMPORTS
     MatSliderModule,
@@ -53,7 +62,17 @@ import { OverlayModule } from '@angular/cdk/overlay';
     //for Root
     NgxWebstorageModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    TranslateService, {
+      provide: APP_INITIALIZER,
+      useFactory: setupTranslateFactory,
+      deps: [TranslateService],
+      multi: true
+    }
+  ],
+  exports:[
+    TranslatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
