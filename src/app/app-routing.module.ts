@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SearchComponent } from './pages/search/search.component';
+import { LicenseComponent } from './pages/license/license.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'search',
     component:SearchComponent,
+  },
+  {
+    path:'licenses',
+    component:LicenseComponent
   }
 ];
 

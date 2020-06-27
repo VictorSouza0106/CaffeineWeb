@@ -29,12 +29,14 @@ export class CardsCarroselComponent implements OnInit , AfterViewChecked {
   ) { }
 
   ngOnInit(){
+    console.log('CARDS',this.cards_1)
   }
   ngAfterViewChecked() {
       this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
   }
 
   setCurrentSong(music:Musics){
+    console.log("MUSIC",music)
     this.sessionStorage.store("currentSong",music);
   }
 

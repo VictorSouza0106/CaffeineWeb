@@ -22,6 +22,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { TranslateModule } from '../app/pipes/translate.module'
 import {TranslatePipe} from './pipes/translate.pipe';
 import { TranslateService } from './services/translate.service';
+import { LicenseComponent } from './pages/license/license.component';
+import { HttpClientModule } from '@angular/common/http';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -35,7 +37,8 @@ export function setupTranslateFactory(
     CardsCarroselComponent,
     FooterComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    LicenseComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ export function setupTranslateFactory(
     PlyrModule,
     OverlayModule,
     TranslateModule,
+    HttpClientModule,
 
     //MAT IMPORTS
     MatSliderModule,

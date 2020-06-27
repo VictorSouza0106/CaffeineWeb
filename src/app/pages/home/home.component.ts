@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MusicService } from 'src/app/services/music.service';
+import { Musics } from 'src/app/models/musics.model';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  musics:any = []
+  musics1:any = []
+  musics2:any = []
 
-  obj = [{
-    'card':[{'id':1,'name':'BILIE ELISH SHOW','img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
-            {'id':2,'name':'BILIE ELISH SHOW','img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
-            {'id':3,'name':'BILIE ELISH SHOW','img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'},
-            {'id':4,'name':'BILIE ELISH SHOW','img_url': 'https://s3.us-east-2.amazonaws.com/aaronstestbucketpnw/Abraham-lincoln-quote-internet-hoax-fake.jpeg','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/lovely.mp3'}]},{
+  refresh:boolean = false;
 
-    'card':[{'id':1,'name':'OUTRA MUSICA REAL JURO QUE MUDOU','img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
-            {'id':2,'name':'OUTRA MUSICA REAL JURO QUE MUDOU','img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
-            {'id':3,'name':'OUTRA MUSICA REAL JURO QUE MUDOU','img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'},
-            {'id':4,'name':'OUTRA MUSICA REAL JURO QUE MUDOU','img_url': 'https://heart-the-cat.s3.us-east-2.amazonaws.com/Sailor_heart.png','music_url':'https://caffeinemusics.s3.us-east-2.amazonaws.com/orgia-de-traveco.mp3'}]
-          }
-        ]
+  constructor(
+    private musicService:MusicService,
+  ) { }
+
 
   ngOnInit() {
+    this.downloadMusics();
+  }
+
+  downloadMusics(){
+    this.musicService.getResources().then((res:Musics[]) => {
+      this.refresh = true
+        this.musics = res;
+      if(this.musics.length > 1)
+        this.musics1 = res;
+      if(this.musics1.length > 1){
+        this.musics2 = res;
+        this.refresh = false;
+      }
+
+    }).finally(()=> {
+      if(this.refresh)
+        this.downloadMusics;
+    })
+    
+
   }
 
 }

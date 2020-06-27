@@ -3,11 +3,12 @@ import {Injector} from '@angular/core';
 import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 import {TranslateService} from './translate.service';
 import {environment} from '../../environments/environment';
+import { BaseModel } from '../models/base.model';
 
 const HTTP_FORBIDDEN = 403;
 const HTTP_UNATH = 401;
 
-export class BaseService<T> {
+export class BaseService<T extends BaseModel> {
 
   http: HttpClient;
   apiPath: string;
@@ -25,21 +26,11 @@ export class BaseService<T> {
 
   async buildHeader() : Promise<HttpHeaders> {
 
-    let firebase = this.sessionStorageService.retrieve('token');
-    let refresh = this.sessionStorage.retrieve('rt');
-    let id_company = null;
-
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'firebase': firebase,
-      'refresh': refresh
     });
 
     return headers;
-  }
-
-  logoutUser() {
-    this.sessionStorage.clear();
   }
 
   static buildQueryParams(params: any): HttpParams {
@@ -59,16 +50,6 @@ export class BaseService<T> {
     }catch(Exception){
       console.log("Token not refreshed")
     }
-  }
-
-  willLogoutUser(error : HttpErrorResponse){
-
-    try{
-      if(error.status === HTTP_FORBIDDEN){
-        this.logoutUser();
-        window.alert(this.translate.data['app']['session_expired']);
-      }
-    }catch (e) {}
   }
 
   async getResources(queryParams?: any) : Promise<T[]> {
@@ -92,7 +73,6 @@ export class BaseService<T> {
         return this.jsonDataToModels(data);
       }
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
   }
@@ -111,7 +91,6 @@ export class BaseService<T> {
         return this.jsonDataToModel(data);
       }
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
   }
@@ -129,7 +108,6 @@ export class BaseService<T> {
         return this.jsonDataToModels(data);
       }
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
 
@@ -149,7 +127,6 @@ export class BaseService<T> {
         return this.jsonDataToModel(data);
       }
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
   }
@@ -164,7 +141,6 @@ export class BaseService<T> {
         return this.jsonDataToModel(data);
       }
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
   }
@@ -178,7 +154,6 @@ export class BaseService<T> {
         return true;
       })
     ).catch( reason => {
-      this.willLogoutUser(reason);
       throw reason;
     });
   }

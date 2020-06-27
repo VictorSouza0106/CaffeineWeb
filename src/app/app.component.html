@@ -14,7 +14,7 @@
       </div>
       <mat-menu #menu="matMenu">
         <button mat-menu-item class="d-flex flex-row align-items-center py-2" style="height: unset;" *ngFor="let music of musicHistoric" (click)="playHistoricMusic(music)">
-          <img [src]="music.img_url" class="historic_img">
+          <img [src]="music.image" class="historic_img">
           <span class="ml-2" style="color: white;">{{music.name}}</span>
         </button>
         <div class="m-3" *ngIf="musicHistoric.length == 0">
@@ -40,19 +40,19 @@
       </mat-list-item>
         <mat-list-item (click)="goToURL('/search')">
           <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
-          <span style="font-weight: 500;" class="ml-2">BUSCAR</span>
+          <span style="font-weight: 500;" class="ml-2">{{'sidenav.search' | translate}}</span>
         </mat-list-item>
         <mat-list-item (click)="play()">
           <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
-          <span style="font-weight: 500;" class="ml-2">MIXAGEM</span>
+          <span style="font-weight: 500;" class="ml-2">{{'sidenav.mixing' | translate}}</span>
         </mat-list-item>
         <mat-list-item>
           <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
-          <span style="font-weight: 500;" class="ml-2">FAVORITOS</span>
+          <span style="font-weight: 500;" class="ml-2">{{'sidenav.favorite' | translate}}</span>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item (click)="goToURL('/licenses')">
           <i class="mdi mdi-coffee" style="font-size: 1.2em;"></i>
-          <span style="font-weight: 500;" class="ml-2">LICENÇAS</span>
+          <span style="font-weight: 500;" class="ml-2">{{'sidenav.licenses' | translate}}</span>
         </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

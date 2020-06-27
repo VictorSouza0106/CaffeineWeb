@@ -15,20 +15,28 @@
           <div class="col-12">
               <app-cards-carrosel
               [identifier]="'TEST'"
-              [title]="'Músicas'"
-              [cards_1]="obj[0].card"
-              [cards_2]="obj[1].card"
-              [cards_3]="obj[0].card"
+              [title]="'Musicas'"
+              [cards_1]="musics[0]"
+              [cards_2]="musics[1]"
+              [cards_3]="musics[2]"
               >
             </app-cards-carrosel>
             <app-cards-carrosel
-            [identifier]="'TESTE'"
-            [title]="'CARROUSELL 2'"
-            [cards_1]="obj[0].card"
-            [cards_2]="obj[1].card"
-            [cards_3]="obj[0].card"
+            [identifier]="'TESTE1'"
+            [title]="'Musicas Recentes'"
+            [cards_1]="musics1[0]"
+            [cards_2]="musics1[1]"
+            [cards_3]="musics1[2]"
             >
           </app-cards-carrosel>
+          <app-cards-carrosel
+          [identifier]="'TESTE2'"
+          [title]="'Musicas Populares'"
+          [cards_1]="musics2[0]"
+          [cards_2]="musics2[1]"
+          [cards_3]="musics2[2]"
+          >
+        </app-cards-carrosel>
           </div>
       </div>
   </div>

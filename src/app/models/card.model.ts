@@ -4,5 +4,7 @@ export class Card{
       public id?:number,
       public img_url?:string
     ){}
+
+    
   }
   

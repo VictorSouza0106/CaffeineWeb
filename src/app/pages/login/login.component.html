@@ -7,7 +7,7 @@
           <mat-form-field class="example-full-width" style="background-color: white;">
             <mat-label>
               <i class="mdi mdi-account"></i>
-              <span class="ml-2">Nickname</span>
+              <span class="ml-2">{{'login.nickname' | translate}}</span>
             </mat-label>
             <input matInput type="text" formControlName="nickname" placeholder="JoanaDark">   
           </mat-form-field>
@@ -21,14 +21,14 @@
           <mat-form-field class="example-full-width" style="background-color: white;">
             <mat-label>
               <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">Password</span>
+              <span class="ml-2">{{'login.password' | translate}}</span>
             </mat-label>
             <input matInput type="password" formControlName="password">   
           </mat-form-field>
           <mat-form-field class="example-full-width" style="background-color: white;">
             <mat-label>
               <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">Confirm Password</span>
+              <span class="ml-2">{{'login.confirm_password' | translate}}</span>
             </mat-label>
             <input matInput type="password" formControlName="password">   
           </mat-form-field>
@@ -44,15 +44,15 @@
           <mat-form-field class="example-full-width" style="background-color: white;">
             <mat-label>
               <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">Password</span>
+              <span class="ml-2">{{'login.password' | translate}}</span>
             </mat-label>
             <input matInput type="password" formControlName="password">   
           </mat-form-field>
         </form>
-        <button mat-raised-button color="primary" class="mt-2 w-100 card-2">Login</button>
+        <button mat-raised-button color="primary" class="mt-2 w-100 card-2">{{'login.login' | translate}}</button>
         <div class="d-flex flex-row justify-content-between mt-3 w-100 px-3">
-          <p>Esqueceu a senha?</p>
-          <p (click)="register()">Cadastre-se</p>
+          <p style="cursor: pointer;">{{'login.forgot_password' | translate}}</p>
+          <p (click)="register()">{{'login.register' | translate}}</p>
         </div>
       </div>
     </div>

@@ -1,0 +1,34 @@
+p {
+    margin-bottom: 0;
+}
+
+.license-title {
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.license-price{
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.license-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+    margin-top: 6px; 
+}
+
+.mdi {
+    font-size: 1.3em;
+    margin-right: 7px;
+}
+
+.mdi-check{
+    color: #00ac1d;
+}
+
+.mdi-close{
+    color: #ca0000;
+}
