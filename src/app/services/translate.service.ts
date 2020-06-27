@@ -14,7 +14,7 @@ export class TranslateService {
     return new Promise<{}>((resolve, reject) => {
       let langData;
       if(lang === 'en-US')
-        langData = langFilePt;
+        langData = langFileEn;
       else
         langData = langFilePt;
 
