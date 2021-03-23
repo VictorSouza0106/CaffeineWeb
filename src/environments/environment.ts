@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  //api: 'http://127.0.0.1:8000/api/',
-  api: "http://192.168.15.11:8000/",
+  api: 'http://CaffeineAPI:8000/api/',
+  // api: "http://192.168.15.11:8000/",
   production: false
 };
 

@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   downloadMusics(){
     this.musicService.getResources().then((res:Musics[]) => {
-      this.refresh = true
+      
         this.musics = res;
       if(this.musics.length > 1)
         this.musics1 = res;
