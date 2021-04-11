@@ -1,0 +1,134 @@
+.info-text p {
+    margin: 0;
+    color: #fafafa;
+    font-size:1.1em
+}
+
+.card-absolut{
+    position: absolute;
+    width: 270px;height: 270px;
+    left: 150px;top: 89px;
+    background-image: url(../../../assets/album.png);
+    background-size:cover;
+    border: 3px solid white;
+    background-position-x: center;
+}
+
+.card-music{
+    background-color: #0c1b2b;
+    cursor: pointer;height: 35px!important;
+    width: 35px;
+    border-radius: 20px;
+}
+
+.card-magico{
+    background-size: cover;
+    border: 3px solid #0c1b2b;
+    border-radius: 16px;
+    display: flex;
+    height: 338px;
+}
+
+.berserk-img {
+    display: block;
+}
+.card-berserk-right:hover .overlay-right {
+    width: 65%;
+    background-color: #ffffff;    
+}
+
+.card-berserk-left:hover .overlay-left {
+    width: 65%;
+    background-color: #000000;
+}
+
+.overlay-right {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    border-radius: 16px 0px 0px 16px;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+
+    z-index: 100;
+  }
+
+  .overlay-left {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 0px 16px 16px 0px;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+
+    z-index: 100;
+  }
+
+  .berserk-title{
+      white-space: nowrap;
+      position: absolute;
+      top:10%;
+      left: 50%;
+      font-size: 50px;
+      text-align: center;
+      font-style: oblique;
+      text-decoration: underline;
+
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+  }
+
+  .berserk-text{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    font-size: 20px;
+    text-align: center;
+    white-space: pre;
+
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .berserk-footer{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    font-size: 20px;
+    text-align: center;
+    font-style: oblique;
+    white-space: nowrap;
+
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+  .berserk {
+    background-color: #000000;
+    height: 500px;
+    border-radius: 16px;
+    position: relative;
+    background-image: url('../../../assets/berserk.png');
+    background-position-y: 50%;
+    background-size:contain;
+  }
+
+  .berserk-button{
+    height: 45px;
+    width: 45px;
+    background-color: #0c1b2b;
+    position: absolute;
+    top: 85%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 50;
+  }

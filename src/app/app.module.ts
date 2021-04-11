@@ -24,6 +24,7 @@ import {TranslatePipe} from './pipes/translate.pipe';
 import { TranslateService } from './services/translate.service';
 import { LicenseComponent } from './pages/license/license.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BeatrizComponent } from './pages/beatriz/beatriz.component';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -38,7 +39,8 @@ export function setupTranslateFactory(
     FooterComponent,
     LoginComponent,
     SearchComponent,
-    LicenseComponent
+    LicenseComponent,
+    BeatrizComponent
   ],
   imports: [
     BrowserModule,
