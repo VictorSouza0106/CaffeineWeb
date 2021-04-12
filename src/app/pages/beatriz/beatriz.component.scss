@@ -132,3 +132,53 @@
     cursor: pointer;
     z-index: 50;
   }
+
+  .audio-img{
+    height: 170px;width:170px;
+    border-radius: 170px;
+    background-color: darkcyan;
+    border: 3px solid #fafafa;
+    position: relative;
+
+    background-size: contain;
+  }
+
+  .carousel-item p{
+      color: white;
+  }
+
+  .audio-img img{
+    position:absolute;
+    left:0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .background:hover
+  {
+      opacity: 0;
+      cursor: pointer;
+  }
+
+  
+  .circle-controller{
+    height: 30px;
+    width: 30px;
+    border-radius: 16px;
+    background-color: var(--primary-color);
+}
+
+.links a {
+    color: white;
+    text-decoration: underline;
+    font-style: oblique;
+    font-weight: 300;
+}
+
+
+.links a:hover {
+    color: yellow;
+    font-weight: bold;
+}

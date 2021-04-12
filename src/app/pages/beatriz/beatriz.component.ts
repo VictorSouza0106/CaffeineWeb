@@ -25,7 +25,6 @@ export class BeatrizComponent implements OnInit {
 
 
   ngOnInit() {
-    this.setCurrentSong(null);
   }
   
   setCurrentSong(num:number){
@@ -62,6 +61,27 @@ export class BeatrizComponent implements OnInit {
         musics.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/lost_girls.mp3";
         musics.name = "Dreams";
         musics.image = "../../../assets/album_2.png"
+        break;
+
+      case 6:
+        musics.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/bersek.mp3";
+        musics.name = "Os seus sonhos te cegaram";
+        musics.image = "../../../assets/berserk.png";
+        break;
+
+      case 7:
+        break;
+
+      case 8:
+        musics.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/victor.mp3";
+        musics.name = "Parabens para Você - Victor";
+        musics.image = "../../../assets/victor.jpg";
+        break;
+
+      case 9:
+        musics.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/vitor.mp3"
+        musics.name = "Parabens para Você - Vitor";
+        musics.image = "../../../assets/vitor.png";
         break;
 
       default:

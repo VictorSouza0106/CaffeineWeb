@@ -10,7 +10,7 @@ import { BeatrizComponent } from './pages/beatriz/beatriz.component';
 const routes: Routes = [
   {
     path:'',
-    component:HomeComponent,
+    component:BeatrizComponent,
   },
   {
     path:'login',
