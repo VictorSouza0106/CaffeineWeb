@@ -70,6 +70,9 @@ export class BeatrizComponent implements OnInit {
         break;
 
       case 7:
+        musics.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/carlos.mp3";
+        musics.name = "Parabens para Você - Carlos";
+        musics.image = "../../../assets/carlos.jpg";
         break;
 
       case 8:
