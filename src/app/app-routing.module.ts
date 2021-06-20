@@ -8,7 +8,7 @@ import { LicenseComponent } from './pages/license/license.component';
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'',
     component:HomeComponent,
   },
   {

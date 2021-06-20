@@ -24,6 +24,7 @@ import {TranslatePipe} from './pipes/translate.pipe';
 import { TranslateService } from './services/translate.service';
 import { LicenseComponent } from './pages/license/license.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TawkService } from './services/tawk.service';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -72,11 +73,12 @@ export function setupTranslateFactory(
       useFactory: setupTranslateFactory,
       deps: [TranslateService],
       multi: true
-    }
+    },
+    TawkService,
   ],
   exports:[
     TranslatePipe
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

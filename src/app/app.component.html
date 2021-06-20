@@ -2,13 +2,19 @@
   <mat-toolbar-row style="height: 60px;" class="d-flex flex-row justify-content-between w-100">
     <div>
       <i class="mdi mdi-menu" style="cursor: pointer;" (click)="toggleDrawer()  "></i>
-      <span class="ml-4">(API Fora do ar)</span>
+      <span class="ml-4">(Migração RDS -> MongoDB)</span>
     </div>
     <div class="d-flex flex-row align-items-center" style="margin-top: 16px;">
       <div class="d-flex justify-content-center flex-column align-items-center">
-        <marquee class="music-title"style="font-size: 0.7em;">{{currentSong? currentSong.name : 'Caffeine Music and Sound Effects'}}</marquee>
-        <div plyr style="width: 440px;" plyrType="audio" [plyrPlaysInline]="false" [plyrSources]="plyrSources" (plyrInit)="player = $event" (plyrPlay)="played($event)"
-        [plyrOptions]="plyr_controls" (plyrStateChange)="played($event)"></div>
+        <marquee class="music-title"style="font-size: 0.7em;">{{currentMusic? currentMusic?.name : 'Caffeine Music and Sound Effects'}}</marquee>
+        <div 
+        plyr style="width: 440px;" 
+        plyrType="audio" 
+        (plyrInit)="player = $event"
+        [plyrPlaysInline]="false" 
+        [plyrSources]="plyrSources" 
+        [plyrOptions]="plyr_controls">
+        </div>
       </div>
       <div class="ml-2" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="menu" (click)="menuTrigger.openMenu" style="cursor: pointer;">
         <i class="mdi mdi-playlist-music"></i>
@@ -35,7 +41,7 @@
       <img src="../assets/Caffeine logo.PNG" style="width: 100%">
     </div>      
     <mat-nav-list>
-      <mat-list-item (click)="goToURL('/home')">
+      <mat-list-item (click)="goToURL('')">
         <i class="mdi mdi-home" style="font-size: 1.2em;"></i>
         <span style="font-weight: 500;" class="ml-2">{{'sidenav.home' | translate}}</span>
       </mat-list-item>
@@ -43,11 +49,11 @@
           <i class="mdi mdi-magnify" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">{{'sidenav.search' | translate}}</span>
         </mat-list-item>
-        <mat-list-item (click)="play()">
+        <mat-list-item (click)="goToURL('/mixing')">
           <i class="mdi mdi-tune" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">{{'sidenav.mixing' | translate}}</span>
         </mat-list-item>
-        <mat-list-item>
+        <mat-list-item (click)="goToURL('/favorites')">
           <i class="mdi mdi-star" style="font-size: 1.2em;"></i>
           <span style="font-weight: 500;" class="ml-2">{{'sidenav.favorite' | translate}}</span>
         </mat-list-item>
@@ -58,6 +64,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <div style="padding-top:var(--header-height); padding-bottom: 1px;">
-    <router-outlet></router-outlet>
+    <router-outlet class="px-5"></router-outlet>
   </div>
 </mat-sidenav-container>

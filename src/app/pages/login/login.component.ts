@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TawkService } from 'src/app/services/tawk.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,12 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public formBuilder:FormBuilder,
+    public tawkService:TawkService,
   ) { }
 
   ngOnInit() {
+
+    this.tawkService.SetChatVisibility(true);
 
     this.loginForm = this.formBuilder.group({
       email:[],

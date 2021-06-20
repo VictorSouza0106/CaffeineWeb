@@ -20,7 +20,7 @@ export const langFilePt = {
     },
     'license':{
         "monthly": "Mensal",
-        "favorite_song":"Favoritar Música",
+        "favorite_muisc":"Favoritar Música",
         "view_history":"Visualizar Histórico de Música",
         "add_mix":"Adicionar Músicas",
         "sell_musics":"Vender Músicas",

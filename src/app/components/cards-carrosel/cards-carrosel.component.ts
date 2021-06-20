@@ -35,9 +35,9 @@ export class CardsCarroselComponent implements OnInit , AfterViewChecked {
       this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
   }
 
-  setCurrentSong(music:Musics){
+  setCurrentMusic(music:Musics){
     console.log("MUSIC",music)
-    this.sessionStorage.store("currentSong",music);
+    this.sessionStorage.store("currentMusic",music);
   }
 
 }
