@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 
   plyrSources: Plyr.Source[] = [
     {
-      src: 'https://caffeinemusics.s3.us-east-2.amazonaws.com/18-Stuck+In+the+Sound.mp3',
+      src: '..\assets\VAPORWAVE 01.mp3',
       type: 'audio/mp3',
     },
   ];
