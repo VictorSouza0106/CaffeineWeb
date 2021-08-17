@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { 
   MatSliderModule,MatToolbarModule, MatIconModule,
   MatSidenavModule,MatListModule, MatInputModule, MatButtonModule, MatMenuModule} from '@angular/material';
-import { from } from 'rxjs';
 import { HomeComponent } from './pages/home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CardsCarroselComponent } from './components/cards-carrosel/cards-carrosel.component';
@@ -25,7 +24,6 @@ import { TranslateService } from './services/translate.service';
 import { LicenseComponent } from './pages/license/license.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TawkService } from './services/tawk.service';
-import { BeatrizComponent } from './pages/beatriz/beatriz.component';
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
@@ -41,7 +39,6 @@ export function setupTranslateFactory(
     LoginComponent,
     SearchComponent,
     LicenseComponent,
-    BeatrizComponent
   ],
   imports: [
     BrowserModule,

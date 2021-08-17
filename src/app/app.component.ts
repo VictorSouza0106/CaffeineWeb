@@ -6,6 +6,8 @@ import { Musics } from './models/musics.model';
 import { MusicPlayerService } from './services/music-player.service';
 import { SessionStorageService } from 'ngx-webstorage';
 import { TawkService } from './services/tawk.service';
+import { TawkUser } from './models/tawkUser.model';
+import { TranslateService } from './services/translate.service';
 
 const LOGIN_URL = "";
 const NUMBER_OF_HISTORIC_ITEMS = 8;
@@ -26,6 +28,9 @@ export class AppComponent implements OnInit {
   musicHistoric:Musics[] = [];
   currentMusic:Musics = null;
 
+  tawkBlockedUrl:string[] = ['/login','/search'];
+  tawkAdminUrl:string[] = ['/'];
+
   plyr_controls = {
     controls:['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'pip', 'airplay', 'fullscreen']};
 
@@ -41,9 +46,12 @@ export class AppComponent implements OnInit {
     private sessionStorage:SessionStorageService,
     private musicPlayerService:MusicPlayerService,
     private tawkService: TawkService,
+    private translateService:TranslateService,
   ) { }
 
   public ngOnInit(){
+
+    //this.translateService.use('pt-BR')
 
     this.startRouterOberserver();    
     this.startCurrentMusicObservable(); 
@@ -71,7 +79,18 @@ export class AppComponent implements OnInit {
   private startRouterOberserver(){
     this.router.events.subscribe((router:RouterEvent) => {
       if(router instanceof NavigationEnd )
-        console.log("CALL OBS ROUTE",router.url);
+      {
+        if(this.tawkBlockedUrl.some(urls => router.url.includes(urls))) {
+          this.tawkService.SetChatVisibility(false);
+        }
+
+        if(this.tawkAdminUrl.some(urls => router.url.includes(urls))) {
+
+          //TODO VERIFICAR USUARIO;
+          let tawkUser:TawkUser = new TawkUser();
+          this.tawkService.UpdateTawkUser(tawkUser);
+        }
+      }
     });
   }
 
@@ -82,10 +101,6 @@ export class AppComponent implements OnInit {
     this.sessionStorage.store('history',this.musicHistoric);
   }
 
-  private play(): void {
-    this.player.play();
-  }
-
   public playHistoricMusic(music:Musics){
     this.currentMusic = music;
     this.plyrSources = [{
@@ -94,7 +109,7 @@ export class AppComponent implements OnInit {
     }]
   }
 
-  public goToURL(path){
+  public goToURL(path:string){
     this.router.navigateByUrl(path)
   }
 
