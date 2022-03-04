@@ -32,6 +32,6 @@ export const langFilePt = {
         "password":"Senha",
         "confirm_password":"Confirmar Senha",
         "forgot_password":"Esqueceu a senha?",
-        "register":"Registrar"
+        "register":"Registrar-se"
     }       
 }

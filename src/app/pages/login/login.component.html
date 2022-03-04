@@ -1,58 +1,98 @@
 <div class="background-login">
-  <div class="full-page container d-flex align-items-center justify-content-center" style="height: 100%;">
+  <div
+    class="full-page container d-flex align-items-center justify-content-center"
+    style="height: 100%"
+  >
     <div class="row w-100 d-flex justify-content-center">
-      <div class="col-12 col-md-6 m-5 card-2 p-4 d-flex flex-column align-items-center" style="background-color: white;border-radius: 22px;">
-        <img src="../../../assets/Caffeine logo.PNG" style="width: 80%;" class="mb-3">
-        <form [formGroup]="registerform" class="w-100 px-3" *ngIf="!hasUser">
-          <mat-form-field class="example-full-width" style="background-color: white;">
+      <div
+        class="
+          col-12 col-md-6
+          m-5
+          card-2
+          p-4
+          d-flex
+          flex-column
+          align-items-center
+        "
+        style="background-color: white; border-radius: 22px"
+      >
+        <img
+          src="../../../assets/Caffeine logo.PNG"
+          style="width: 80%"
+          class="mb-3"
+        />
+        <form [formGroup]="form" class="w-100 px-3">
+          <mat-form-field class="form-input" style="background-color: white">
             <mat-label>
               <i class="mdi mdi-account"></i>
-              <span class="ml-2">{{'login.nickname' | translate}}</span>
+              <span class="ml-2">{{ "login.nickname" | translate }}</span>
             </mat-label>
-            <input matInput type="text" formControlName="nickname" placeholder="JoanaDark">   
+            <input
+              matInput
+              type="text"
+              formControlName="nickname"
+              placeholder="JoanaDark"
+            />
           </mat-form-field>
-          <mat-form-field class="example-full-width" style="background-color: white;">
+
+          <mat-form-field class="form-input" style="background-color: white" *ngIf="formType == REGISTER_TYPE">
             <mat-label>
               <i class="mdi mdi-email-outline"></i>
               <span class="ml-2">Email</span>
             </mat-label>
-            <input matInput type="email" formControlName="email" placeholder="JoanaDark@email.com">   
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="JoanaDark@email.com"
+            />
           </mat-form-field>
-          <mat-form-field class="example-full-width" style="background-color: white;">
+
+          <mat-form-field class="form-input" style="background-color: white">
             <mat-label>
               <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">{{'login.password' | translate}}</span>
+              <span class="ml-2">{{ "login.password" | translate }}</span>
             </mat-label>
-            <input matInput type="password" formControlName="password">   
+            <input 
+              matInput type="password" 
+              formControlName="password" 
+            />
           </mat-form-field>
-          <mat-form-field class="example-full-width" style="background-color: white;">
+
+          <mat-form-field class="form-input" style="background-color: white" *ngIf="formType == REGISTER_TYPE">
             <mat-label>
               <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">{{'login.confirm_password' | translate}}</span>
+              <span class="ml-2">{{
+                "login.confirm_password" | translate
+              }}</span>
             </mat-label>
-            <input matInput type="password" formControlName="password">   
+            <input
+              matInput type="password"
+              formControlName="confirmPassword" 
+            />
           </mat-form-field>
+          <div *ngIf="formType == REGISTER_TYPE">
+            <mat-checkbox formControlName="terms"  class="example-margin">Concordo com os <a (click)="openTerms()">Termos de uso e Politica de privacidade</a></mat-checkbox>
+          </div>
         </form>
-        <form [formGroup]="loginForm" class="w-100 px-3" *ngIf="hasUser">
-          <mat-form-field class="example-full-width" style="background-color: white;">
-            <mat-label>
-              <i class="mdi mdi-email-outline"></i>
-              <span class="ml-2">Email</span>
-            </mat-label>
-            <input matInput type="email" formControlName="email" placeholder="JoanaDark@email.com">   
-          </mat-form-field>
-          <mat-form-field class="example-full-width" style="background-color: white;">
-            <mat-label>
-              <i class="mdi mdi-shield-key-outline"></i>
-              <span class="ml-2">{{'login.password' | translate}}</span>
-            </mat-label>
-            <input matInput type="password" formControlName="password">   
-          </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" class="mt-2 w-100 card-2">{{'login.login' | translate}}</button>
-        <div class="d-flex flex-row justify-content-between mt-3 w-100 px-3">
-          <p style="cursor: pointer;">{{'login.forgot_password' | translate}}</p>
-          <p (click)="register()">{{'login.register' | translate}}</p>
+        <button 
+          [disabled]="!this.form.valid"
+          mat-raised-button 
+          color="primary"
+          class="mt-2 w-100 card-2"
+          (click)="save()">
+          {{(formType == LOGIN_TYPE ? "login.login" : "login.register") | translate}}
+        </button>
+        <button 
+        mat-raised-button 
+        color="primary"
+        class="mt-2 w-100 card-2 google"
+        (click)="null">
+        {{(formType == LOGIN_TYPE ? "login.login" : "login.register") | translate}} with GOOGLE
+        </button>
+        <div class="login-options">
+          <p>{{"login.forgot_password" | translate}}</p>
+          <p (click)="changeFormType()">{{(formType == LOGIN_TYPE ? "login.register" : "login.login") | translate}}</p>
         </div>
       </div>
     </div>

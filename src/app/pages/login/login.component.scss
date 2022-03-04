@@ -13,4 +13,23 @@
     bottom: 0;
     right: 0;
     opacity: 1;
-  }
+}
+
+.login-options {
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-top: 16px;
+
+    p:hover {
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: bold;
+    }
+}
+
+.google {
+    background-color: white;
+    color: black;
+}
