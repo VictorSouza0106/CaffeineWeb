@@ -34,8 +34,10 @@ export class CardsCarroselComponent implements OnInit , AfterViewChecked {
     let music:Musics = new Musics();
 
     music.music_url = "https://caffeinemusic.s3-sa-east-1.amazonaws.com/VAPORWAVE.mp3"
+    music.name = 'I love you';
+    music.image = './../../../assets/music_img_9.jpg'
 
-    this.setCurrentMusic(music)
+    this.setCurrentMusic(music);
   }
   ngAfterViewChecked() {
       this.height = `${this.musicCard.nativeElement.offsetWidth}px`;
