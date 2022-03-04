@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   @ViewChild('drawer') drawer: MatDrawer;
   @ViewChild(PlyrComponent) plyr: PlyrComponent;
 
+  loggedUser: string = null;
+
   title = 'caffeineWebPanel';
   player: Plyr;
 
@@ -51,20 +53,24 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(){
 
-    //this.translateService.use('pt-BR')
+    // this.translateService.use('pt-BR')
 
-    this.startRouterOberserver();    
-    this.startCurrentMusicObservable(); 
+    this.startRouterOberserver();
+    this.startCurrentMusicObservable();
     this.tawkService.SetChatVisibility(false);
 
-  } 
-  
+    this.sessionStorage.observe('logged-user').subscribe(() => {
+      this.loggedUser = this.sessionStorage.retrieve('logged-user');
+    });
+
+  }
+
   private startCurrentMusicObservable(){
     this.musicPlayerService.observeMusic().subscribe((music:Musics) => {
 
       try{
         this.musicPlayerService.changeCurrentMusic(music);
-        this.addMusicToHistoric(music);      
+        this.addMusicToHistoric(music);
         this.plyrSources = [{
           src: music.music_url,
           type: 'audio/mp3',

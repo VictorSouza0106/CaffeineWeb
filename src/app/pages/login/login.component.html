@@ -49,7 +49,7 @@
             <input matInput type="password" formControlName="password">   
           </mat-form-field>
         </form>
-        <button mat-raised-button color="primary" class="mt-2 w-100 card-2">{{'login.login' | translate}}</button>
+        <button mat-raised-button (click)="save()" color="primary" class="mt-2 w-100 card-2">{{'login.login' | translate}}</button>
         <div class="d-flex flex-row justify-content-between mt-3 w-100 px-3">
           <p style="cursor: pointer;">{{'login.forgot_password' | translate}}</p>
           <p (click)="register()">{{'login.register' | translate}}</p>

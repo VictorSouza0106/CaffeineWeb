@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SessionStorageService } from 'ngx-webstorage';
 import { TawkService } from 'src/app/services/tawk.service';
 
 @Component({
@@ -17,6 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     public formBuilder:FormBuilder,
     public tawkService:TawkService,
+    public sessionStorage: SessionStorageService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -36,11 +40,25 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  save(){
+    if(this.hasUser){
+      this.sessionStorage.store('logged-user', this.loginForm.get('email').value);
+    }
+    else {
+      this.sessionStorage.store('logged-user', this.registerform.get('nickname').value);
+    }
+
+    this.router.navigateByUrl('home');
+  }
+
   register(){
-    if(this.hasUser)
-    this.hasUser = false;
-    else
-    this.hasUser = true;
+    if(this.hasUser){
+      this.hasUser = false;
+    }
+    else {
+      this.hasUser = true;
+    }
+
   }
 
 
