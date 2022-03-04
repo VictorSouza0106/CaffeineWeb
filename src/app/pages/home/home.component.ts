@@ -1,46 +1,134 @@
-import { Component, OnInit } from '@angular/core';
-import { MusicService } from 'src/app/services/music.service';
-import { Musics } from 'src/app/models/musics.model';
+import { Component, OnInit } from "@angular/core";
+import { MusicService } from "src/app/services/music.service";
+import { Musics } from "src/app/models/musics.model";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  musics: any[] = [];
+  musics1: any[] = [];
+  musics2: any[] = [];
 
-  musics:any = []
-  musics1:any = []
-  musics2:any = []
+  refresh: boolean = false;
 
-  refresh:boolean = false;
-
-  constructor(
-    private musicService:MusicService,
-  ) { }
-
+  constructor(private musicService: MusicService) {}
 
   ngOnInit() {
     this.downloadMusics();
   }
 
-  downloadMusics(){
-    this.musicService.getResources().then((res:Musics[]) => {
-      
-        this.musics = res;
-      if(this.musics.length > 1)
-        this.musics1 = res;
-      if(this.musics1.length > 1){
-        this.musics2 = res;
-        this.refresh = false;
-      }
+  downloadMusics() {
+    this.musics = [
+      [
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_1.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_2.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_3.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_4.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+      ],
+      [
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_5.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_6.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_12.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_7.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+      ],
+      [
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_8.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_9.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_10.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+        {
+          id: 1,
+          duration: 2,
+          toJson: null,
+          name: "Teste",
+          image: "./../../../assets/music_img_11.jpg",
+          music_url: "./../../../assets/VAPORWAVE.mp3",
+        },
+      ],
+    ];
 
-    }).finally(()=> {
-      if(this.refresh)
-        this.downloadMusics;
-    })
-    
+    console.log(this.musics);
 
+    this.musics1 = this.musics;
+    this.musics2 = this.musics;
   }
-
 }

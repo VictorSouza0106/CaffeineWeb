@@ -75,24 +75,26 @@
             <mat-checkbox formControlName="terms"  class="example-margin">Concordo com os <a (click)="openTerms()">Termos de uso e Politica de privacidade</a></mat-checkbox>
           </div>
         </form>
-        <button 
-          [disabled]="!this.form.valid"
-          mat-raised-button 
-          color="primary"
-          class="mt-2 w-100 card-2"
-          (click)="save()">
-          {{(formType == LOGIN_TYPE ? "login.login" : "login.register") | translate}}
-        </button>
-        <button 
-        mat-raised-button 
-        color="primary"
-        class="mt-2 w-100 card-2 google"
-        (click)="null">
-        {{(formType == LOGIN_TYPE ? "login.login" : "login.register") | translate}} with GOOGLE
-        </button>
-        <div class="login-options">
-          <p>{{"login.forgot_password" | translate}}</p>
-          <p (click)="changeFormType()">{{(formType == LOGIN_TYPE ? "login.register" : "login.login") | translate}}</p>
+        <form [formGroup]="form" class="w-100 px-3" *ngIf="hasUser">
+          <mat-form-field class="example-full-width" style="background-color: white;">
+            <mat-label>
+              <i class="mdi mdi-email-outline"></i>
+              <span class="ml-2">Email</span>
+            </mat-label>
+            <input matInput type="email" formControlName="email" placeholder="JoanaDark@email.com">   
+          </mat-form-field>
+          <mat-form-field class="example-full-width" style="background-color: white;">
+            <mat-label>
+              <i class="mdi mdi-shield-key-outline"></i>
+              <span class="ml-2">{{'login.password' | translate}}</span>
+            </mat-label>
+            <input matInput type="password" formControlName="password">   
+          </mat-form-field>
+        </form>
+        <button mat-raised-button (click)="save()" color="primary" class="mt-2 w-100 card-2">{{'login.login' | translate}}</button>
+        <div class="d-flex flex-row justify-content-between mt-3 w-100 px-3">
+          <p style="cursor: pointer;">{{'login.forgot_password' | translate}}</p>
+          <p (click)="register()">{{'login.register' | translate}}</p>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@
       <div class="d-flex justify-content-center flex-column align-items-center">
         <marquee class="music-title"style="font-size: 0.7em;">{{currentMusic? currentMusic?.name : 'Caffeine Music and Sound Effects'}}</marquee>
         <div 
+        id="plyr"
         plyr style="width: 440px;" 
         plyrType="audio" 
         (plyrInit)="player = $event"
@@ -30,7 +31,7 @@
       </mat-menu>
     </div>
     <div>      
-      <span>Olá, Beatriz</span>
+      <span>{{loggedUser ? 'Olá ' + loggedUser :('login.login' | translate)}}</span>
       <i class="mdi mdi-menu-down ml-2" (click)="goToURL('/login')" style="color: white;cursor: pointer;"></i>
     </div>
   </mat-toolbar-row>

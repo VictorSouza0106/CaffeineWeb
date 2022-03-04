@@ -11,7 +11,9 @@ import { Musics } from '../models/musics.model';
 })
 export class MusicPlayerService {
 
-  player:Plyr;
+  player:any = Plyr.setup('#plyr', {
+    controls:['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'pip', 'airplay', 'fullscreen']},
+  );
 
   constructor(
     private sessionStorage:SessionStorageService
@@ -19,12 +21,19 @@ export class MusicPlayerService {
 
 
   public observeMusic():Observable<Musics>{
-    return this.sessionStorage.observe('CurrentMusic');
+    return this.sessionStorage.observe('currentMusic');
   }
 
-  public changeCurrentMusic(currentMusic:Musics){    
+  public changeCurrentMusic(currentMusic:Musics){ 
+    
+    try {
+
       this.player.stop();
       currentMusic = this.sessionStorage.retrieve('currentMusic');
       this.player.autoplay = true;
+    } catch (error) {
+      console.log('player', this.player, error);   
+    }
+
   }
 }

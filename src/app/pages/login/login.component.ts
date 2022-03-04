@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { IUser } from './login.interface';
 import { TermsDialogComponent } from './terms-dialog/terms-dialog';
-
-
+import { SessionStorageService } from 'ngx-webstorage';
+import { TawkService } from 'src/app/services/tawk.service';
 
 @Component({
   selector: 'app-login',
@@ -20,10 +20,14 @@ export class LoginComponent implements OnInit {
   public form: FormGroup;
   public formType: string = this.LOGIN_TYPE;
 
+  hasUser: boolean = true;
+
   constructor(
     public formBuilder:FormBuilder,
-    private router: Router,
     private dialog: MatDialog,
+    public tawkService:TawkService,
+    public sessionStorage: SessionStorageService,
+    public router: Router,
   ) { }
 
   ngOnInit() {
@@ -43,25 +47,24 @@ export class LoginComponent implements OnInit {
   }
 
   public save(){
-
-    const data: IUser = {
-      id: null,
-      nickname: this.form.get('nickname').value,
-      email: this.form.get('email').value,
-      pass: this.form.get('password').value,
+    if(this.hasUser){
+      this.sessionStorage.store('logged-user', this.form.get('email').value);
+    }
+    else {
+      this.sessionStorage.store('logged-user', this.form.get('nickname').value);
     }
 
-    this.formType == this.LOGIN_TYPE ? this.doLogin(data) : this.doRegister(data);
+    this.router.navigateByUrl('home');
   }
 
-  private doLogin(data: any){
-    console.log("LOGIN");
-    this.router.navigateByUrl('home');
-  }
-  
-  private doRegister(data: any){
-    console.log("REGISTER");
-    this.router.navigateByUrl('home');
+  register(){
+    if(this.hasUser){
+      this.hasUser = false;
+    }
+    else {
+      this.hasUser = true;
+    }
+
   }
 
   public changeFormType(){
